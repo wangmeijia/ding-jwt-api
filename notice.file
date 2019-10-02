@@ -1,0 +1,2 @@
+composer config repositories.meijia path ../laravel-thearapi 设置本地包地址
+composer require tiniy/api:dev-master 本地必须带上：dev-master

@@ -1,0 +1,27 @@
+{
+    "name": "tiniy\/api",
+    "description": "tiniy api for login & register & other",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wmeijia0617",
+            "email": "928905053@qq.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+
+        "psr-4": {
+            "Tiniy\\Api\\": "src"
+        }
+    },
+    "extra":{
+        "laravel":{
+            "providers":[
+                "Tiniy\\Api\\Providers\\TinyapiServiceProvider"
+            ]
+        }
+    }
+}
