@@ -7,6 +7,25 @@
 
 ```shell
 $ composer require tiniy/api -vvv
+
+#php artisan vendor:publish --tag=config 发步配置文件
+
+
+php artisan route:cache -v
+php artisan api:routes 查看当前可用的api 路由（dinggo route）
+
+在route/api.php里需要加 自定义api路由
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1', function (  $api) {
+
+    $api->group(['namespace'=>'Tiniy\Api\Http\Controllers'],function ($api){
+
+       // $this->loadRoutesFrom(__DIR__.'/../Http/routes.php');
+
+       // $api->get('/register', 'TinyapiController@register');
+    });
+
+});
 ```
 
 ## Usage
@@ -26,3 +45,4 @@ _The code contribution process is not very formal. You just need to make sure th
 ## License
 
 MIT
+
