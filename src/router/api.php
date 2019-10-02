@@ -19,24 +19,24 @@ $this->api->get('/', ['uses'=>'AuthController@index','middleware'=>'auth:apijwt'
 /// Route::get('/{param1}/{param2}', 'TestController@index');
  //echo config('router.0.table');
 //dd(config('userApi.router.0.fields'));
-$this->api->get("/users/{string}", 'QueryController@getOne')->name('getOne1');
+$this->api->get("/users/{string?}", 'QueryController@getOne')->name('getOne1');
 
 //$this->api->get(config('userApi.router.0.table').'/'.config('userApi.router.0.fields'), 'QueryController@getOne')->name('getOne');
 //$this->api->get(config('userApi.router.1.table').'/'.config('userApi.router.1.fields'), 'QueryController@getOne')->name('getOne');
 //$this->api->get("/users/name=meijia&email=12", 'QueryController@getOne')->name('getOne1');
-$this->api->get("/migrations/", 'QueryController@getOne')->name('getOne2');
+$this->api->get("/migrations/{string?}", 'QueryController@getOne')->name('getOne2');
 $this->api->post('/post/users', 'QueryController@postDatas')->name('postdatas');
-$this->api->put('/put/users/{string}', 'QueryController@putDatas')->name('putDatas');
-$this->api->delete('/delete/users/{string}', 'QueryController@deleteDatas')->name('putDatas');
+$this->api->put('/put/users/{string?}', 'QueryController@putDatas')->name('putDatas');
+$this->api->delete('/delete/users/{string?}', 'QueryController@deleteDatas')->name('putDatas');
 
 
 //通⽤用接⼝口规则
 #config('userApi.selectSql')
 
-$this->api->any('/selectSql', 'QueryAllController@selectSql')->name('putDatas');
-$this->api->any('/updateSql', 'QueryAllController@updateSql')->name('putDatas');
-$this->api->any('/insertSql', 'QueryAllController@insertSql')->name('putDatas');
-$this->api->any('/deleteSql', 'QueryAllController@deleteSql')->name('putDatas');
+$this->api->any('/selectSql/{string?}', 'QueryAllController@selectSql')->name('putDatas');
+$this->api->any('/updateSql/{string?}', 'QueryAllController@updateSql')->name('putDatas');
+$this->api->any('/insertSql/{string?}', 'QueryAllController@insertSql')->name('putDatas');
+$this->api->any('/deleteSql/{string?}', 'QueryAllController@deleteSql')->name('putDatas');
 
 
 //Route::post('login', 'AuthController@login');

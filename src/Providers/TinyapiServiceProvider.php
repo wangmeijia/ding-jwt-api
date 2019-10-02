@@ -6,7 +6,7 @@ use Illuminate\Support\Arr;
 
 /**
  * 这是单元测试组件的服务提供者
- * 用来加载sjunit组件的
+ *
  *
  * 组件传统方式的引用的话 就是 composer require xxxxxx组件
  * 然后只要网咯ok就可以从GitHub上下载下来
@@ -32,9 +32,7 @@ class TinyapiServiceProvider extends ServiceProvider
         //dd();
 
 
-        echo '这是一个小的接口api组件';
         // 让laravel加载组件的配置文件
-        //$this->mergeConfigFrom(__DIR__.'/../Config/member.php', "wap.member");
 
        // echo __DIR__ . '/../../config/tinyapi.php';
 

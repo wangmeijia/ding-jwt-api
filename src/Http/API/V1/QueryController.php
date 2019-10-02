@@ -37,7 +37,7 @@ class QueryController extends Controller
 
     public function getOne(Request $request)
     {
-        return $request->route('string');
+        $string = $request->route('string');
 
         if($request->segment(2)) {
             $table = $request->segment(2);
@@ -119,6 +119,8 @@ class QueryController extends Controller
         return $where;
 
     }
+
+
 
 
 

@@ -24,45 +24,79 @@ class QueryAllController extends Controller
     public function __construct(Request $request)
     {
 
-        $this->middleware('jwt.auth:apijwt', ['except' => ['login','register']]);
+        //$this->middleware('jwt.auth:apijwt', ['except' => ['login','register']]);
 
 
 
     }
-   // protected $fillable = ['name', 'email','password'];
 
 
 
-    public function selectSql()
+    public function selectSql(Request $request)
     {
+        $res = array('code'=>000,'msg'=>'执行成功');
+        $string = $request->route('string');
+        if($string=='') {
+            $res = array('code'=>111,'msg'=>'执行失败，请在路由中设置路由参数！','data'=>array());
+        }else {
+           // DB::enableQueryLog();
 
-        $res =  DB::select(config('userApi.selectSql'));
+           // echo config('userApi.selectSql.'.$string);
+
+            $res['data'] = DB::select(config('userApi.selectSql.'.$string));
+
+           // return response()->json(DB::getQueryLog());
+
+        };
+
         return response()->json($res);
 
     }
 
-    public function updateSql()
+    public function updateSql(Request $request)
     {
+        $string = $request->route('string');
+        $res = array('code'=>000,'msg'=>'执行成功');
 
+        if($string=='') {
+            $res = array('code'=>111,'msg'=>'执行失败，请在路由中设置路由参数！','data'=>array());
+        }else {
+            $res['data'] = DB::update(config('userApi.updateSql.'.$string));
 
-        $res =  DB::update(config('userApi.updateSql'));
+        };
+
         return response()->json($res);
 
     }
 
-    public function insertSql()
+    public function insertSql(Request $request)
     {
+        $string = $request->route('string');
+        $res = array('code'=>000,'msg'=>'执行成功');
 
+        if($string=='') {
+            $res = array('code'=>111,'msg'=>'执行失败，请在路由中设置路由参数！','data'=>array());
+        }else {
+            $res['data'] = DB::insert(config('userApi.insertSql.'.$string));
 
-        $res =  DB::insert(config('userApi.insertSql'));
+        };
+
         return response()->json($res);
 
     }
-    public function deleteSql()
+    public function deleteSql(Request $request)
     {
 
+        $string = $request->route('string');
+        $res = array('code'=>000,'msg'=>'执行成功');
 
-        $res =  DB::delete(config('userApi.deleteSql'));
+        if($string=='') {
+            $res = array('code'=>111,'msg'=>'执行失败，请在路由中设置路由参数！','data'=>array());
+        }else {
+
+
+            $res['data']  = DB::delete(config('userApi.deleteSql.'.$string));
+        }
         return response()->json($res);
 
     }

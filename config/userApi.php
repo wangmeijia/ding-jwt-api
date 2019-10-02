@@ -23,10 +23,10 @@ return [
 //        ['table'=>'users','fields'=>'name=meijia&email=wangmeijia17@163.com'],
 //        ['table'=>'users','fields'=>'name=a&email=b@163.com'],
 //    ],
-    'selectSql'=>"select * from users where id = 48",
-    'updateSql'=>"update users set name = 1233 where NAME = 'se'",
-    'insertSql'=>"insert into users (NAME,email,password) VALUEs ('呀','ab@163.com','swoee') ",
-    'deleteSql'=>"delete from users WHERE id=51",
+    'selectSql'=>['test'=>"select * from users where id = 48",'test2'=>"select * from migrations"],
+    'updateSql'=>['test'=>"update users set name = 1233 where NAME = '呀3'"],
+    'insertSql'=>['test'=>"insert into users (NAME,email,password) VALUEs ('呀3','abb@163.com','swoee') "],
+    'deleteSql'=>['test'=>"delete from users WHERE id=58"],
 
 
 
